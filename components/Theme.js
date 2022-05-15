@@ -4,10 +4,10 @@ function Theme(){
     return (
         <div>
             <h1 className={styles.title}>
-                次世代の文化系SNS
+                早押しクイズ
             </h1>
             <p className={styles.description}>
-                ここにあるのは争いではなく、多様性と調和。
+                ブラウザから簡単・気軽にプレイできます！
             </p>
         </div>
     )

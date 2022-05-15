@@ -8,8 +8,8 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>The next SNS</title>
-        <meta name="description" content="ここにあるのは争いではなく、多様性と調和。" />
+        <title>早押しクイズ</title>
+        <meta name="description" content="ブラウザからか簡単プレイ！" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -18,14 +18,14 @@ export default function Home() {
 
         <div className={styles.grid}>
           <Link href="test"><a className={styles.card}>
-            <h2>始めよう！ &rarr;</h2>
-            <p>Discordなどのアカウントを用いですぐに始められます。</p>
+            <h2>プレイ &rarr;</h2>
+            <p>ログイン・登録無しでブラウザから誰でも無料でプレイできます。</p>
           </a></Link>
 
           <Link href="about">
             <a className={styles.card}>
-              <h2>特徴 &rarr;</h2>
-              <p>このサービスの何が新しいのかを発見しにいきましょう。</p>
+              <h2>ルール &rarr;</h2>
+              <p>ゲームの遊び方やルールを確認しましょう。</p>
             </a>
           </Link>
 
