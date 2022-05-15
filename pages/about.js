@@ -25,9 +25,6 @@ function Home(){
                             <p>3.参加者はホストからもらったリンクまたはPINを用いてゲームに参加します。</p>
                             <p>4.参加者が揃ったらゲームを開始します。</p>
                             <p>2.ホストがゲームを作成します。</p>
-                            <a href="#" class="icon-link">
-                            Call to action
-                            </a>
                         </div>
                         <div class="feature col">
                             <h2>Featured title</h2>
