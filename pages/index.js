@@ -23,28 +23,25 @@ export default function Home() {
             <p>ログイン・登録無しでブラウザから誰でも無料でプレイできます。</p>
           </a></Link>
 
-          <Link href="about/">
+          <Link href="rule/">
             <a className={styles.card}>
               <h2>ルール &rarr;</h2>
               <p>ゲームの遊び方やルールを確認しましょう。</p>
             </a>
           </Link>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
+          <a href="https://github.com/YossiSuper/testsns" className={styles.card}>
+            <h2>Github &rarr;</h2>
+            <p>このプロジェクトはオープンソースで、ソースコードはGithubにて公開されています！</p>
           </a>
 
           <a
             href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
             className={styles.card}
           >
-            <h2>Deploy &rarr;</h2>
+            <h2>QuizEditor &rarr;</h2>
             <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
+              クイズデータのJSONデータを簡単かつ、直感的に作成できます。
             </p>
           </a>
         </div>

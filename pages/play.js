@@ -3,6 +3,8 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import Theme from '../components/Theme'
+import Layout from '../components/Layout'
+
 import { useRouter } from 'next/router';
 
 export default function Home() {
@@ -41,3 +43,9 @@ export default function Home() {
         </div>
     )
 }
+
+Home.getLayout = function getLayout(page) {
+    return (
+      <Layout>{page}</Layout>
+    )
+  }
