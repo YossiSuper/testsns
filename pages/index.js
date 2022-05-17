@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import Theme from '../components/Theme'
+import Layout from '../components/Layout'
 
 export default function Home() {
   return (
@@ -10,19 +11,19 @@ export default function Home() {
       <Head>
         <title>早押しクイズ</title>
         <meta name="description" content="ブラウザからか簡単プレイ！" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="favicon.ico" />
       </Head>
 
       <main className={styles.main}>
         <Theme></Theme>
 
         <div className={styles.grid}>
-          <Link href="test"><a className={styles.card}>
+          <Link href="test/"><a className={styles.card}>
             <h2>プレイ &rarr;</h2>
             <p>ログイン・登録無しでブラウザから誰でも無料でプレイできます。</p>
           </a></Link>
 
-          <Link href="about">
+          <Link href="about/">
             <a className={styles.card}>
               <h2>ルール &rarr;</h2>
               <p>ゲームの遊び方やルールを確認しましょう。</p>
@@ -49,5 +50,11 @@ export default function Home() {
         </div>
       </main>
     </div>
+  )
+}
+
+Home.getLayout = function getLayout(page) {
+  return (
+    <Layout>{page}</Layout>
   )
 }
