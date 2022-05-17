@@ -18,7 +18,7 @@ export default function Home() {
         <Theme></Theme>
 
         <div className={styles.grid}>
-          <Link href="test/"><a className={styles.card}>
+          <Link href="play/"><a className={styles.card}>
             <h2>プレイ &rarr;</h2>
             <p>ログイン・登録無しでブラウザから誰でも無料でプレイできます。</p>
           </a></Link>
