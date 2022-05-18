@@ -1,0 +1,21 @@
+{
+    "question": [{
+        "question": "aはどれ",
+        "selections": [
+            "a",
+            "b",
+            "c",
+            "d"
+        ],
+        "answer": "a"
+    }, {
+        "question": "bはどれ",
+        "selections": [
+            "a",
+            "b",
+            "c",
+            "d"
+        ],
+        "answer": "b"
+    }]
+}

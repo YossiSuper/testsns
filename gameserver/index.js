@@ -76,6 +76,7 @@ wsServer.on('request', function(request) {
                     owner: clientId,
                     quiz: quiz
                 },
+                answer: []
             }
 
             const payLoad = {
@@ -108,16 +109,69 @@ wsServer.on('request', function(request) {
                 clients[player.clientId].connection.send(JSON.stringify(payLoad));
             })
         }
+
+        //methotが"startGame"の場合
+        if (result.method == "startGame") {
+            const gameId = result.gameId
+
+            //開始処理
+            games[gameId].status = "starting"
+
+            const payLoad = {
+                method: "startGame",
+                gameId: gameId,
+                players: games[gameId].players
+            }
+
+            games[gameId].players.forEach((player) => {
+                clients[player.clientId].connection.send(JSON.stringify(payLoad));
+            })
+            
+            StartGame(gameId, 1)
+        }
+
+        //methotが"answer"の場合
+        if (result.method == "answer") {
+            const clientId = result.clientId
+            const gameId = result.gameId
+            const answer = result.answer
+
+            games[gameId].answer.push({
+                clientId: clientId,
+                answer: answer
+            })
+        }
     });
 
-    const clientsId = generateUUID();
-    clients[clientsId] = {
+    function StartGame(gameId, round){
+        const game = games[gameId]
+        games[gameId].status = "playing"
+        const quiz = game.setting.quiz        
+
+        //クイズを出題
+        const quenstion = quiz.quenstion[round - 1].quenstion
+        const answer = quiz.quenstion[round - 1].answer
+
+        //クイズを送信
+        const payLoad = {
+            method: "quiz",
+            gameId: game.gameId,
+            quenstion: quenstion
+        }
+
+        game.players.forEach((player) => {
+            clients[player.clientId].connection.send(JSON.stringify(payLoad));
+        })
+    }
+
+    const clientId = generateUUID();
+    clients[clientId] = {
         "connection": connection,
     }
 
     const payLoad = {
         "method": "connect",
-        "clientId": clientsId,
+        "clientId": clientId,
     }
 
     connection.send(JSON.stringify(payLoad));
