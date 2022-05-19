@@ -1,5 +1,5 @@
 // WebSocketのクライアントの生成
-let ws = new WebSocket('ws://192.168.2.100:8080');
+let ws = new WebSocket('wss://192.168.2.100:8080');
 
 //変数
 clientId = '';
