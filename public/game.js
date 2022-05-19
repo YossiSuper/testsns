@@ -2,8 +2,10 @@
 let ws = new WebSocket('ws://192.168.2.100:8080');
 
 //変数
-let clientId = '';
-let playerName = '';
+clientId = '';
+gameId = '';
+playerName = '';
+players = [];
  
 // 接続時に呼ばれる
 ws.addEventListener('open', e => {
@@ -41,6 +43,36 @@ ws.addEventListener('message', function (event) {
 
         p.innerHTML = "Your name:" + playerName
     }
+
+    //methotが"createGame"の場合
+    if (result.method == "createGame") {
+        //ゲームを追加
+        gameId = result.gameId
+        //gamesを表示
+        const p = document.getElementById('gameId');
+
+        p.innerHTML = "gameId:" + gameId
+
+        joinGame();
+    }
+
+    //methotが"joinGame"の場合
+    if (result.method == "joinGame") {
+        //ゲームを追加
+        gameId = result.gameId
+        //gamesを表示
+        const p = document.getElementById('gameId');
+
+        p.innerHTML = "gameId:" + gameId
+
+        //プレイヤー取得
+        players = result.players;
+
+        //プレイヤーを表示
+        const p_p = document.getElementById('players');
+        p_p.innerHTML = "players:" + JSON.stringify(players);
+
+    }
 });
 
 function onClick_reload() {
@@ -49,6 +81,12 @@ function onClick_reload() {
 
     const p_name = document.getElementById('name');
     p_name.innerHTML = "Your name:" + playerName
+
+    const p_games = document.getElementById('gameId');
+    p_games.innerHTML = "gameId:" + gameId
+
+    const p_players = document.getElementById('players');
+    p_players.innerHTML = "players:" + JSON.stringify(players);
 
     switchScreen();
 }
@@ -100,16 +138,41 @@ function setName() {
     ws.send(JSON.stringify(payLoad));
 }
 
-//ゲーム作成処理
+//ゲーム作成処理(OnClick)
 function onClick_createGame() {
     setName();
 
     const payLoad = {
         method: "createGame",
         clientId: clientId,
-        quizData: document.getElementById('quiz_data').value
+        quiz: document.getElementById('quiz_data').value
     }
 
-    //ws.send(JSON.stringify(payLoad));
+    ws.send(JSON.stringify(payLoad));
+
+    
+}
+
+//ゲーム参加処理
+function joinGame() {
+    console.log(gameId)
+    console.log(clientId)
+    const payLoad = {
+        method: "joinGame",
+        clientId: clientId,
+        gameId: gameId
+    }
+
+    ws.send(JSON.stringify(payLoad));
+}
+
+//ゲーム参加処理(OnClick)
+function onClick_joinGame() {
+    setName();
+
+    //ゲームIDを取得
+    gameId = document.getElementById('textbox_gameId').value;
+
+    joinGame();
 }
     

@@ -32,6 +32,8 @@ export default function Home() {
                     <button className='btn btn-outline-primary' onClick={() => onClick_reload()}>reload</button>
                     <p id='clientId'></p>
                     <p id='name'></p>
+                    <p id='gameId'></p>
+                    <p id='players'></p>
                 </div>
             </div>
 
@@ -41,7 +43,9 @@ export default function Home() {
                     <div className="mb-3 participantOnly">
                         <label htmlFor="textbox_nickname" className="form-label">ニックネーム</label>
                         <input type="text" className="form-control" id="textbox_nickname" />
-                        <button className='btn btn-outline-primary' onClick={() => onClick_join()}>Join</button>
+                        <label htmlFor="textbox_gameId" className="form-label">GameID</label>
+                        <input type="text" className="form-control" id="textbox_gameId" />
+                        <button className='btn btn-outline-primary' onClick={() => onClick_joinGame()}>Join</button>
                     </div>
                     <div className="mb-3 ownerOnly">
                         <label htmlFor="textbox_nickname" className="form-label">ニックネーム</label>

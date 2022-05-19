@@ -32,3 +32,4 @@ yarn-error.log*
 .vercel
 
 /gameserver/node_modules/
+test.html
