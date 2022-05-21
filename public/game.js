@@ -1,5 +1,5 @@
 // WebSocketのクライアントの生成
-let ws = new WebSocket('wss://192.168.2.100:8080');
+let ws = new WebSocket('ws://192.168.2.100:8080');
 
 //変数
 clientId = '';
@@ -174,5 +174,26 @@ function onClick_joinGame() {
     gameId = document.getElementById('textbox_gameId').value;
 
     joinGame();
+}
+
+function onClick_play() {
+    const payLoad = {
+        method: "startGame",
+        gameId: gameId
+    }
+
+    ws.send(JSON.stringify(payLoad));
+}
+
+//テスト用 asnwer aを送信
+function onClick_answerA() {
+    const payLoad = {
+        method: "answer",
+        clientId: clientId,
+        answer: "a",
+        gameId: gameId
+    }
+
+    ws.send(JSON.stringify(payLoad));
 }
     

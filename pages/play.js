@@ -55,6 +55,7 @@ export default function Home() {
                         <button className='btn btn-outline-primary' onClick={() => onClick_createGame()}>Create</button>
                         
                     </div>
+                    <button onClick={() => onClick_play()}>play</button>
                 </div>
             </div>
         </div>
